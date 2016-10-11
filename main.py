@@ -15,24 +15,19 @@ def getResults():
 
 
 
-    ###### Outcome of the game:
-    ###### W = Duke Win
-    ###### L = Duke Loss
-    ###### C = Cancelled
-    ###### P = Postponed
+    # Outcome of the game:
+    # W = Duke Win
+    # L = Duke Loss
+    # C = Cancelled
+    # P = Postponed
     last_result = results[-1].get_text().strip().split()
     last_outcome = last_result[0][0].upper()
 
     ###### Opponent
     last_opponent = opponents[-1].get_text().strip()
 
-    ###### Did the game go into extras?
-    if "(" in last_result:
-        went_to_extras = True
-    else:
-        went_to_extras = False
-
-    return last_outcome
+    rv = last_outcome + "\n" + last_opponent
+    return rv
 
 if __name__ == "__main__":
     app.run()
